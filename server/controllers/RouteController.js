@@ -13,6 +13,12 @@ class RouteController {
     return res.json(route);
   }
 
+  async getOne(req, res) {
+    const { id } = req.params;
+    const route = await Route.findOne({ where: { id } });
+    return res.json(route);
+  }
+
   async destroy(req, res) {
     const { id } = req.params;
     const route = await Route.destroy({ where: { id } });

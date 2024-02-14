@@ -56,14 +56,14 @@ const ApplicationTask = sequelize.define("Application_task", {
 
 const Route = sequelize.define("route", {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-  applicationId: { type: DataTypes.INTEGER },
-  statusId: { type: DataTypes.INTEGER },
-  routeGroupId: { type: DataTypes.INTEGER },
+  applicationId: { type: DataTypes.INTEGER, allowNull: false },
+  statusId: { type: DataTypes.INTEGER, allowNull: false },
+  routeGroupId: { type: DataTypes.INTEGER, allowNull: false },
 });
 
 const RouteGroup = sequelize.define("route_group", {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-  name: { type: DataTypes.STRING },
+  name: { type: DataTypes.STRING, allowNull: false },
 });
 
 Route.belongsTo(RouteGroup);

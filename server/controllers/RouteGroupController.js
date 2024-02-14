@@ -12,6 +12,11 @@ class RouteGroupController {
     const route = await RouteGroup.findAll();
     return res.json(route);
   }
+  async getOne(req, res) {
+    const { id } = req.params;
+    const route = await RouteGroup.findOne({ where: { id } });
+    return res.json(route);
+  }
 
   async destroy(req, res) {
     const { id } = req.params;
